@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class game_manager : MonoBehaviour {
 
+    public int lives = 3;
     private GameObject launcher;
 
     private void Start()
@@ -25,6 +26,16 @@ public class game_manager : MonoBehaviour {
     public void BallOutOfBounds(Collider2D ball)
     {
         Destroy(ball.gameObject);
-        launcher.SendMessage("resetFire");
+        lives --;
+
+        if (lives > 0)
+        {
+            launcher.SendMessage("resetFire");
+        }
+        else
+        {
+            Debug.Log("Game Over");
+        }
+        
     }
 }
