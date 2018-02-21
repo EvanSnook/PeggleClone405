@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour {
+public class launcher_shoot : MonoBehaviour {
 
     public float projectileSpeed; // Movement Speed of the projectile.
     public GameObject projectilePrefab; // The Projectile that will be fired.
@@ -14,12 +14,15 @@ public class Shoot : MonoBehaviour {
 
     void Start()
     {
+        Debug.Log("Ready to fire");
         canFire = true;
     }
+
     void FixedUpdate()
     {
         if (Input.GetAxisRaw("Fire1") > 0.1)
         { // This get's the input for Fire1 and sends message to fire if pushed.
+            Debug.Log("Ball fired");
             FireProjectileAtMouse();
         }
     }
@@ -30,6 +33,7 @@ public class Shoot : MonoBehaviour {
     {
         if (canFire)
         {
+            Debug.Log("Fire on cooldown");
             canFire = false;
 
             getMousePosition();
@@ -59,6 +63,7 @@ public class Shoot : MonoBehaviour {
 
     public void resetFire()
     {
+        Debug.Log("Ready to fire");
         canFire = true;
     }
 }

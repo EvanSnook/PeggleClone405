@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class followMouse : MonoBehaviour {
+public class launcher_follow_mouse : MonoBehaviour {
 
     private Quaternion angleToMouse;
     private Vector3 mousePosition;
@@ -10,7 +10,7 @@ public class followMouse : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        Debug.Log("Launcher is following mouse...");
     }
 
     // Update is called once per frame
