@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class game_manager : MonoBehaviour {
 
-    public int lives = 3;
+    public int balls = 3;
     private GameObject launcher;
 
     private void Start()
@@ -26,9 +26,11 @@ public class game_manager : MonoBehaviour {
     public void BallOutOfBounds(Collider2D ball)
     {
         Destroy(ball.gameObject);
-        lives --;
+        balls --;
+        Debug.Log(balls + " lives left");
+        Debug.Log(GameObject.FindGameObjectsWithTag("peg").Length + " pegs left");
 
-        if (lives > 0)
+        if (balls > 0 && GameObject.FindGameObjectsWithTag("peg").Length > 0)
         {
             launcher.SendMessage("resetFire");
         }

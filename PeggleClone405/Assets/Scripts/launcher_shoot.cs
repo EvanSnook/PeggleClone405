@@ -22,7 +22,7 @@ public class launcher_shoot : MonoBehaviour {
     {
         if (Input.GetAxisRaw("Fire1") > 0.1)
         { // This get's the input for Fire1 and sends message to fire if pushed.
-            Debug.Log("Ball fired");
+            
             FireProjectileAtMouse();
         }
     }
@@ -33,6 +33,7 @@ public class launcher_shoot : MonoBehaviour {
     {
         if (canFire)
         {
+            Debug.Log("Ball fired");
             Debug.Log("Fire on cooldown");
             canFire = false;
 
