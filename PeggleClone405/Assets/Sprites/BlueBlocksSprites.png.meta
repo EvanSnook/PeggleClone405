@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7bd9ec9e01b8752439b8c9eafef09bf8
-timeCreated: 1519198709
+guid: 5a4cb3f00ebcea84e84d10fc61d08168
+timeCreated: 1519629230
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,8 @@ TextureImporter:
     21300012: BlueBlocksSprites_6
     21300014: BlueBlocksSprites_7
     21300016: BlueBlocksSprites_8
+    21300018: BlueBlocksSprites_9
+    21300020: BlueBlocksSprites_10
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -102,8 +104,8 @@ TextureImporter:
       name: BlueBlocksSprites_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 780
+        x: 21
+        y: 1011
         width: 63
         height: 179
       alignment: 0
@@ -116,8 +118,8 @@ TextureImporter:
       name: BlueBlocksSprites_1
       rect:
         serializedVersion: 2
-        x: 251
-        y: 764
+        x: 139
+        y: 1003
         width: 121
         height: 186
       alignment: 0
@@ -130,8 +132,8 @@ TextureImporter:
       name: BlueBlocksSprites_2
       rect:
         serializedVersion: 2
-        x: 416
-        y: 776
+        x: 294
+        y: 993
         width: 176
         height: 199
       alignment: 0
@@ -144,8 +146,8 @@ TextureImporter:
       name: BlueBlocksSprites_3
       rect:
         serializedVersion: 2
-        x: 649
-        y: 745
+        x: 501
+        y: 976
         width: 225
         height: 216
       alignment: 0
@@ -158,10 +160,10 @@ TextureImporter:
       name: BlueBlocksSprites_4
       rect:
         serializedVersion: 2
-        x: 42
-        y: 510
-        width: 270
-        height: 238
+        x: 780
+        y: 898
+        width: 330
+        height: 290
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +174,10 @@ TextureImporter:
       name: BlueBlocksSprites_5
       rect:
         serializedVersion: 2
-        x: 321
-        y: 449
-        width: 318
-        height: 292
+        x: 28
+        y: 729
+        width: 270
+        height: 238
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +188,10 @@ TextureImporter:
       name: BlueBlocksSprites_6
       rect:
         serializedVersion: 2
-        x: 656
-        y: 458
-        width: 330
-        height: 290
+        x: 368
+        y: 679
+        width: 304
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +202,8 @@ TextureImporter:
       name: BlueBlocksSprites_7
       rect:
         serializedVersion: 2
-        x: 90
-        y: 73
+        x: 801
+        y: 513
         width: 345
         height: 320
       alignment: 0
@@ -214,10 +216,38 @@ TextureImporter:
       name: BlueBlocksSprites_8
       rect:
         serializedVersion: 2
-        x: 589
-        y: 43
+        x: 99
+        y: 419
+        width: 412
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueBlocksSprites_9
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 100
         width: 350
         height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueBlocksSprites_10
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 217
+        width: 175
+        height: 175
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
