@@ -22,7 +22,7 @@ public class game_manager : MonoBehaviour {
     {
         Debug.Log("destroy " + collision.gameObject);
         collision.gameObject.tag = "hit";
-        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         //Destroy(collision.gameObject);
     }
 
