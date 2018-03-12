@@ -6,6 +6,7 @@ public class game_manager : MonoBehaviour {
 
     public int balls = 3;
     private GameObject launcher;
+    private GameObject[] hit_blocks;
 
     private void Start()
     {
@@ -20,10 +21,12 @@ public class game_manager : MonoBehaviour {
     public void BallCollision(Collision2D collision)
     {
         Debug.Log("destroy " + collision.gameObject);
-        Destroy(collision.gameObject);
+        collision.gameObject.tag = "hit";
+        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+        //Destroy(collision.gameObject);
     }
 
-    public void BallOutOfBounds(Collider2D ball)
+    public void ResetBall(Collider2D ball)
     {
         Destroy(ball.gameObject);
         balls --;
@@ -39,5 +42,15 @@ public class game_manager : MonoBehaviour {
             Debug.Log("Game Over");
         }
         
+    }
+    
+    public void ExplodeBlocks()
+    {
+        hit_blocks = GameObject.FindGameObjectsWithTag("hit");
+
+        foreach (GameObject block in hit_blocks)
+        {
+            Destroy(block.gameObject);
+        }
     }
 }

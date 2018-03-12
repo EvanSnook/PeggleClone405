@@ -14,8 +14,9 @@ public class boundaries : MonoBehaviour {
     void OnTriggerExit2D(Collider2D ball)
     {
         Debug.Log("Ball left boundaries");
-        game_manager.SendMessage("BallOutOfBounds", ball);
-        //Destroy(ball.gameObject);
-        //launcher.SendMessage("resetFire");
+        game_manager.SendMessage("ResetBall", ball);
+
+        Debug.Log("exploding blocks");
+        game_manager.SendMessage("ExplodeBlocks");
     }
 }
