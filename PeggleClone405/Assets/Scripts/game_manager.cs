@@ -50,6 +50,40 @@ public class game_manager : MonoBehaviour {
 
         foreach (GameObject block in hit_blocks)
         {
+            //change colour back to original
+            block.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+
+            //start the animation
+            block.GetComponent<Animator>().SetBool("Destroy", true);
+
+
+            StartCoroutine(WaitForGlitch(block));
+    
+        }
+
+        StartCoroutine(WaitForAnimation(hit_blocks));
+
+    }
+
+    IEnumerator WaitForGlitch(GameObject block)
+    {
+        //arbitrary time that stops my glitch of the block becoming large before the animation starts
+        yield return new WaitForSeconds(0.2F);
+
+        //disable the colider to stop and potential issues from arisung
+        block.GetComponent<PolygonCollider2D>().enabled = false;
+
+        //increase size of animation
+        block.transform.localScale = new Vector3(2, 2, 1);
+    }
+
+    IEnumerator WaitForAnimation(GameObject[] hit_blocks)
+    {
+        //time it takes explosion animation to complete
+        yield return new WaitForSeconds(1F);
+
+        foreach (GameObject block in hit_blocks)
+        {
             Destroy(block.gameObject);
         }
     }
