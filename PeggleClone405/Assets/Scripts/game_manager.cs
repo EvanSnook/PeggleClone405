@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class game_manager : MonoBehaviour {
 
     public int balls = 3;
     private GameObject launcher;
     private GameObject[] hit_blocks;
+    public GameObject explosion_animation;
+    private Vector3 block_position;
 
     private void Start()
     {
         launcher = GameObject.FindGameObjectWithTag("launcher");
+        
     }
 
 	// Update is called once per frame
@@ -50,41 +55,25 @@ public class game_manager : MonoBehaviour {
 
         foreach (GameObject block in hit_blocks)
         {
-            //change colour back to original
-            block.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            block_position = new Vector3(block.transform.position.x, block.transform.position.y, block.transform.position.z);
 
-            //start the animation
-            block.GetComponent<Animator>().SetBool("Destroy", true);
+            Destroy(block.gameObject);
 
+            GameObject xplosion = Instantiate(explosion_animation,block_position, new Quaternion(0,0,0,0));
 
-            StartCoroutine(WaitForGlitch(block));
-    
+            StartCoroutine(WaitForAnimation(xplosion));
+
         }
 
-        StartCoroutine(WaitForAnimation(hit_blocks));
+
 
     }
 
-    IEnumerator WaitForGlitch(GameObject block)
-    {
-        //arbitrary time that stops my glitch of the block becoming large before the animation starts
-        yield return new WaitForSeconds(0.2F);
-
-        //disable the colider to stop and potential issues from arisung
-        block.GetComponent<PolygonCollider2D>().enabled = false;
-
-        //increase size of animation
-        block.transform.localScale = new Vector3(2, 2, 1);
-    }
-
-    IEnumerator WaitForAnimation(GameObject[] hit_blocks)
+    IEnumerator WaitForAnimation(GameObject xplosion)
     {
         //time it takes explosion animation to complete
         yield return new WaitForSeconds(1F);
 
-        foreach (GameObject block in hit_blocks)
-        {
-            Destroy(block.gameObject);
-        }
+        Destroy(xplosion);
     }
 }
