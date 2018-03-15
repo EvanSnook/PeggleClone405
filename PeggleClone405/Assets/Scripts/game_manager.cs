@@ -12,11 +12,12 @@ public class game_manager : MonoBehaviour {
     public GameObject explosion_animation;
     private Vector3 block_position;
     private GameObject[] pegs_left;
+    
 
     private void Start()
     {
         launcher = GameObject.FindGameObjectWithTag("launcher");
-        
+        pegs_left = GameObject.FindGameObjectsWithTag("peg");
     }
 
 	// Update is called once per frame
@@ -26,7 +27,7 @@ public class game_manager : MonoBehaviour {
 
     public void BallCollision(Collision2D collision)
     {
-        Debug.Log("destroy " + collision.gameObject);
+        Debug.Log("Hit: " + collision.gameObject);
         collision.gameObject.tag = "hit";
         collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
@@ -38,6 +39,10 @@ public class game_manager : MonoBehaviour {
             pegs_left[0].AddComponent<CircleCollider2D>();
             pegs_left[0].GetComponent<CircleCollider2D>().isTrigger = true;
             pegs_left[0].GetComponent<CircleCollider2D>().radius = 3.0F;
+
+            pegs_left[0].AddComponent<slow_motion>();
+            pegs_left[0].AddComponent<camera_zoom>();
+
         }
     }
 
@@ -46,9 +51,9 @@ public class game_manager : MonoBehaviour {
         Destroy(ball.gameObject);
         balls --;
         Debug.Log(balls + " lives left");
-        Debug.Log(GameObject.FindGameObjectsWithTag("peg").Length + " pegs left");
+        Debug.Log(pegs_left.Length + " pegs left");
 
-        if (balls > 0 && GameObject.FindGameObjectsWithTag("peg").Length > 0)
+        if (balls > 0 && pegs_left.Length > 0)
         {
             launcher.SendMessage("resetFire");
         }
@@ -74,9 +79,6 @@ public class game_manager : MonoBehaviour {
             StartCoroutine(WaitForAnimation(xplosion));
 
         }
-
-
-
     }
 
     IEnumerator WaitForAnimation(GameObject xplosion)
@@ -85,5 +87,22 @@ public class game_manager : MonoBehaviour {
         yield return new WaitForSeconds(1F);
 
         Destroy(xplosion);
+    }
+
+    public void EnterSlowMotion()
+    {
+
+    }
+    public void ExitSlowMotion()
+    {
+
+    }
+    public void EnterCameraZoom()
+    {
+         
+    }
+    public void ExitCameraZoom()
+    {
+
     }
 }
