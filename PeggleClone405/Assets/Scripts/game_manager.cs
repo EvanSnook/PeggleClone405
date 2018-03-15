@@ -11,6 +11,7 @@ public class game_manager : MonoBehaviour {
     private GameObject[] hit_blocks;
     public GameObject explosion_animation;
     private Vector3 block_position;
+    private GameObject[] pegs_left;
 
     private void Start()
     {
@@ -20,15 +21,24 @@ public class game_manager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+    }
 
     public void BallCollision(Collision2D collision)
     {
         Debug.Log("destroy " + collision.gameObject);
         collision.gameObject.tag = "hit";
         collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-        //Destroy(collision.gameObject);
+
+
+        pegs_left = GameObject.FindGameObjectsWithTag("peg");
+        if (pegs_left.Length == 1)
+        {
+            //if ball != null
+            pegs_left[0].AddComponent<CircleCollider2D>();
+            pegs_left[0].GetComponent<CircleCollider2D>().isTrigger = true;
+            pegs_left[0].GetComponent<CircleCollider2D>().radius = 3.0F;
+        }
     }
 
     public void ResetBall(Collider2D ball)
