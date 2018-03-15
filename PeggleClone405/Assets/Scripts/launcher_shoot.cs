@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class launcher_shoot : MonoBehaviour {
 
-    public float projectileSpeed; // Movement Speed of the projectile.
+    public float projectileSpeed = 500; // Movement Speed of the projectile.
     public GameObject projectilePrefab; // The Projectile that will be fired.
     private GameObject clone; // The fired Projectile.
-    
+
+    public GameObject pointPrefab;
+    private List<GameObject> points = new List<GameObject>();
+    public int numPoints = 20;
+    float fTime = 0;
+
     private bool canFire; // This keeps track of if you can fire or not.
     private Vector3 mousePosition;
     private Quaternion angleToMouse;
@@ -16,6 +21,33 @@ public class launcher_shoot : MonoBehaviour {
     {
         Debug.Log("Ready to fire");
         canFire = true;
+
+        //points are instatiated
+        for (int i = 0; i < numPoints; i++)
+        {
+            GameObject dot = Instantiate(pointPrefab);
+            dot.GetComponent<SpriteRenderer>().enabled = false;
+            points.Add(dot);
+        }
+    }
+
+    void Update()
+    {
+        fTime = 0.1f;
+
+        //points are given a position
+        for (int i = 0; i < numPoints; i++)
+        {
+            float dx =  fTime;
+            float dy =  fTime - (Physics2D.gravity.magnitude * fTime);
+            Vector3 pos = new Vector3(this.gameObject.transform.position.x + dx, this.gameObject.transform.position.y + dy, 0);
+
+            points[i].GetComponent<Transform>().position = pos;
+
+            points[i].GetComponent<SpriteRenderer>().enabled = true;
+
+            fTime += 0.1f;
+        }
     }
 
     void FixedUpdate()
