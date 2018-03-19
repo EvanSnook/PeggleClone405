@@ -15,6 +15,7 @@ public class game_manager : MonoBehaviour {
 
     private Camera cam;
     private bool zoom = false;
+    private bool endgame = false;
     public float zoom_speed = 0.1F;
     public float zoom_step = 0.1F;
     public float norm_zoom = 5F;
@@ -50,7 +51,7 @@ public class game_manager : MonoBehaviour {
             cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(pegs_left[0].transform.position.x, pegs_left[0].transform.position.y, -1), zoom_step);
             
         }
-        else
+        else 
         {
             if (cam.GetComponent<Camera>().orthographicSize <= norm_zoom)
             {
@@ -80,6 +81,12 @@ public class game_manager : MonoBehaviour {
             pegs_left[0].AddComponent<slow_motion>();
             pegs_left[0].AddComponent<camera_zoom>();
 
+        }
+        if(pegs_left.Length == 0)
+        {
+            endgame = true;
+            ExplodeBlocks();
+       
         }
     }
 
@@ -132,7 +139,10 @@ public class game_manager : MonoBehaviour {
     }
     public void ExitSlowMotion()
     {
-        Time.timeScale = 1.0F;
+        if (!endgame)
+        {
+            Time.timeScale = 1.0F;
+        }
     }
     public void EnterCameraZoom()
     {
