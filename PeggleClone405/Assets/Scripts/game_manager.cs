@@ -124,11 +124,11 @@ public class game_manager : MonoBehaviour {
 
     public void EnterSlowMotion()
     {
-
+        Time.timeScale = 0.1F;
     }
     public void ExitSlowMotion()
     {
-
+        Time.timeScale = 1.0F;
     }
     public void EnterCameraZoom()
     {
