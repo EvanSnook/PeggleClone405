@@ -86,6 +86,7 @@ public class game_manager : MonoBehaviour {
         {
             endgame = true;
             ExplodeBlocks();
+            ShowLevelMenu();
        
         }
     }
@@ -154,5 +155,10 @@ public class game_manager : MonoBehaviour {
     public void ExitCameraZoom()
     {
         zoom = false;
+    }
+
+    public void ShowLevelMenu()
+    {
+        GameObject.FindWithTag("LevelCompleteMenu").SetActive(true);
     }
 }

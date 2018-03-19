@@ -8,6 +8,7 @@ TagManager:
   - game_manager
   - launcher
   - hit
+  - LevelCompleteMenu
   layers:
   - Default
   - TransparentFX
