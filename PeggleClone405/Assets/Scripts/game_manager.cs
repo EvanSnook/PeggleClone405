@@ -12,17 +12,50 @@ public class game_manager : MonoBehaviour {
     public GameObject explosion_animation;
     private Vector3 block_position;
     private GameObject[] pegs_left;
-    
+
+    private Camera cam;
+    private bool zoom = false;
+    public float zoom_speed = 0.1F;
+    public float zoom_step = 0.1F;
+    public float norm_zoom = 5F;
+    public float max_zoom = 1F;
 
     private void Start()
     {
         launcher = GameObject.FindGameObjectWithTag("launcher");
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
+        cam = Camera.main;
+
+        pegs_left = GameObject.FindGameObjectsWithTag("peg");
+        if (pegs_left.Length == 1)
+        {
+            //if ball != null
+            pegs_left[0].AddComponent<CircleCollider2D>();
+            pegs_left[0].GetComponent<CircleCollider2D>().isTrigger = true;
+            pegs_left[0].GetComponent<CircleCollider2D>().radius = 3.0F;
+
+            pegs_left[0].AddComponent<slow_motion>();
+            pegs_left[0].AddComponent<camera_zoom>();
+        }
     }
 
-	// Update is called once per frame
-	void Update () {
-        
+        // Update is called once per frame
+    void Update () {
+        if (zoom)
+        {
+            if (cam.GetComponent<Camera>().orthographicSize >= max_zoom)
+            {
+                cam.GetComponent<Camera>().orthographicSize -= zoom_step;
+            }
+        }
+        else
+        {
+            if (cam.GetComponent<Camera>().orthographicSize <= norm_zoom)
+            {
+                cam.GetComponent<Camera>().orthographicSize += zoom_step;
+            }
+        }
+
     }
 
     public void BallCollision(Collision2D collision)
@@ -99,10 +132,12 @@ public class game_manager : MonoBehaviour {
     }
     public void EnterCameraZoom()
     {
-         
+        zoom = true;
     }
+
+
     public void ExitCameraZoom()
     {
-
+        zoom = false;
     }
 }
