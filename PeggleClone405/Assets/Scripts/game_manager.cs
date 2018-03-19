@@ -47,6 +47,8 @@ public class game_manager : MonoBehaviour {
             {
                 cam.GetComponent<Camera>().orthographicSize -= zoom_step;
             }
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(pegs_left[0].transform.position.x, pegs_left[0].transform.position.y, -1), zoom_step);
+            
         }
         else
         {
@@ -54,6 +56,8 @@ public class game_manager : MonoBehaviour {
             {
                 cam.GetComponent<Camera>().orthographicSize += zoom_step;
             }
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(0F,0F,-1F), zoom_step);
+           
         }
 
     }
@@ -133,6 +137,7 @@ public class game_manager : MonoBehaviour {
     public void EnterCameraZoom()
     {
         zoom = true;
+
     }
 
 
