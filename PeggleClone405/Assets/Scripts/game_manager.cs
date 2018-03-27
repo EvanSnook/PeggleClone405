@@ -13,6 +13,10 @@ public class game_manager : MonoBehaviour {
     private Vector3 block_position;
     private GameObject[] pegs_left;
 
+    private GameObject end_game_panel;
+    private GameObject ingame_settings_panel;
+    private GameObject settings_button;
+
     private Camera cam;
     private bool zoom = false;
     private bool endgame = false;
@@ -23,9 +27,17 @@ public class game_manager : MonoBehaviour {
 
     private void Start()
     {
+        Time.timeScale = 1.0F;
         launcher = GameObject.FindGameObjectWithTag("launcher");
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
         cam = Camera.main;
+
+        end_game_panel = GameObject.FindGameObjectWithTag("LevelCompleteMenu");
+        ingame_settings_panel = GameObject.FindGameObjectWithTag("InGameSettingsMenu");
+        settings_button = GameObject.FindGameObjectWithTag("SettingsButton");
+
+        end_game_panel.SetActive(false);
+        ingame_settings_panel.SetActive(false);
 
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
         if (pegs_left.Length == 1)
@@ -86,7 +98,7 @@ public class game_manager : MonoBehaviour {
         {
             endgame = true;
             ExplodeBlocks();
-            ShowLevelMenu();
+            //ShowLevelMenu();
        
         }
     }
@@ -129,9 +141,20 @@ public class game_manager : MonoBehaviour {
     IEnumerator WaitForAnimation(GameObject xplosion)
     {
         //time it takes explosion animation to complete
-        yield return new WaitForSeconds(1F);
+        if (endgame)
+        {
+            yield return new WaitForSeconds(0.5F);
+        }
+        else
+        {
+            yield return new WaitForSeconds(1.0F);
+        }
 
         Destroy(xplosion);
+        if (endgame)
+        {
+            ShowLevelMenu();
+        }
     }
 
     public void EnterSlowMotion()
@@ -159,6 +182,11 @@ public class game_manager : MonoBehaviour {
 
     public void ShowLevelMenu()
     {
-        GameObject.FindWithTag("LevelCompleteMenu").SetActive(true);
+        //GameObject.FindWithTag("LevelCompleteMenu").SetActive(true);
+        end_game_panel.SetActive(true);
+        settings_button.SetActive(false);
+        ingame_settings_panel.SetActive(false);
+        
+
     }
 }

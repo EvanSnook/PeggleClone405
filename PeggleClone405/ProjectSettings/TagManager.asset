@@ -9,6 +9,8 @@ TagManager:
   - launcher
   - hit
   - LevelCompleteMenu
+  - SettingsButton
+  - InGameSettingsMenu
   layers:
   - Default
   - TransparentFX
