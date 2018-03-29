@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 
 
 public class game_manager : MonoBehaviour {
 
     public int balls = 3;
+    private GameObject ball_counter;
+
     private GameObject launcher;
     private GameObject[] hit_blocks;
     public GameObject explosion_animation;
@@ -35,6 +39,8 @@ public class game_manager : MonoBehaviour {
         end_game_panel = GameObject.FindGameObjectWithTag("LevelCompleteMenu");
         ingame_settings_panel = GameObject.FindGameObjectWithTag("InGameSettingsMenu");
         settings_button = GameObject.FindGameObjectWithTag("SettingsButton");
+        ball_counter = GameObject.FindGameObjectWithTag("ballCounter");
+        ball_counter.GetComponent<Text>().text = "Balls Left: " + balls;
 
         end_game_panel.SetActive(false);
         ingame_settings_panel.SetActive(false);
@@ -85,7 +91,6 @@ public class game_manager : MonoBehaviour {
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
         if (pegs_left.Length == 1)
         {
-            //if ball != null
             pegs_left[0].AddComponent<CircleCollider2D>();
             pegs_left[0].GetComponent<CircleCollider2D>().isTrigger = true;
             pegs_left[0].GetComponent<CircleCollider2D>().radius = 3.0F;
@@ -98,8 +103,6 @@ public class game_manager : MonoBehaviour {
         {
             endgame = true;
             ExplodeBlocks();
-            //ShowLevelMenu();
-       
         }
     }
 
@@ -107,6 +110,7 @@ public class game_manager : MonoBehaviour {
     {
         Destroy(ball.gameObject);
         balls --;
+        ball_counter.GetComponent<Text>().text = "Balls Left: " + balls;
         Debug.Log(balls + " lives left");
         Debug.Log(pegs_left.Length + " pegs left");
 
@@ -161,6 +165,7 @@ public class game_manager : MonoBehaviour {
     {
         Time.timeScale = 0.1F;
     }
+
     public void ExitSlowMotion()
     {
         if (!endgame)
@@ -168,10 +173,10 @@ public class game_manager : MonoBehaviour {
             Time.timeScale = 1.0F;
         }
     }
+
     public void EnterCameraZoom()
     {
         zoom = true;
-
     }
 
 
@@ -182,11 +187,9 @@ public class game_manager : MonoBehaviour {
 
     public void ShowLevelMenu()
     {
-        //GameObject.FindWithTag("LevelCompleteMenu").SetActive(true);
         end_game_panel.SetActive(true);
         settings_button.SetActive(false);
         ingame_settings_panel.SetActive(false);
         
-
     }
 }
