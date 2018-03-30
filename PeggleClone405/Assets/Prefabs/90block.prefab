@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4639311399163116}
   - component: {fileID: 212662709088368800}
   - component: {fileID: 60250825621401782}
-  - component: {fileID: 95442061369014178}
   m_Layer: 0
   m_Name: 90block
   m_TagString: peg
@@ -105,23 +104,6 @@ PolygonCollider2D:
       - {x: 1.75, y: -1.755}
       - {x: 1.75, y: -1.225}
       - {x: 1.6999999, y: -0.97499996}
---- !u!95 &95442061369014178
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1448179429967972}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7b7a6cafe4c29c34f9b8fa3ab3a72676, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &212662709088368800
 SpriteRenderer:
   m_ObjectHideFlags: 1

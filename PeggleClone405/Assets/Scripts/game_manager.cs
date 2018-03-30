@@ -94,9 +94,12 @@ public class game_manager : MonoBehaviour {
     public void BallCollision(Collision2D collision)
     {
         Debug.Log("Hit: " + collision.gameObject);
-        collision.gameObject.tag = "hit";
-        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
+        if (collision.gameObject.tag == "peg")
+        {
+            collision.gameObject.tag = "hit";
+            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        }
 
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
         if (pegs_left.Length == 1)
