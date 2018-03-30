@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class settings : MonoBehaviour {
+public class scaling_settings : MonoBehaviour {
 
     public float slow_mo_scale = 0.1f;
     public float explosion_size = 1.0f;
@@ -11,10 +11,28 @@ public class settings : MonoBehaviour {
     public float norm_zoom = 5F;
     public float max_zoom = 1F;
 
+    private static scaling_settings instance = null;
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+  
+        if (!instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            slow_mo_scale = instance.slow_mo_scale;
+            explosion_size = instance.explosion_size;
+            max_zoom = instance.max_zoom;
+
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+
+        }
     }
+ 
 
     public void AdjustSlowMo(float new_speed)
     {

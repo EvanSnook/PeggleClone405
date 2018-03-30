@@ -11,6 +11,9 @@ public class game_manager : MonoBehaviour {
     public int balls = 3;
     private GameObject ball_counter;
 
+    public float slow_mo_scale = 0.1f;
+    public float explosion_size = 1.0f;
+
     private GameObject launcher;
     private GameObject[] hit_blocks;
     public GameObject explosion_animation;
@@ -29,6 +32,8 @@ public class game_manager : MonoBehaviour {
     public float norm_zoom = 5F;
     public float max_zoom = 1F;
 
+    private GameObject settings_object;
+    
     private void Start()
     {
         Time.timeScale = 1.0F;
@@ -44,7 +49,12 @@ public class game_manager : MonoBehaviour {
 
         end_game_panel.SetActive(false);
         ingame_settings_panel.SetActive(false);
-
+        if (GameObject.Find("settings") != null) {
+            settings_object = GameObject.Find("settings");
+            max_zoom = settings_object.GetComponent<scaling_settings>().max_zoom;
+            slow_mo_scale = settings_object.GetComponent<scaling_settings>().slow_mo_scale;
+            explosion_size = settings_object.GetComponent<scaling_settings>().explosion_size;
+        }
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
         if (pegs_left.Length == 1)
         {
@@ -134,8 +144,10 @@ public class game_manager : MonoBehaviour {
             block_position = new Vector3(block.transform.position.x, block.transform.position.y, block.transform.position.z);
 
             Destroy(block.gameObject);
+            
+            GameObject xplosion = Instantiate(explosion_animation ,block_position, new Quaternion(0,0,0,0));
 
-            GameObject xplosion = Instantiate(explosion_animation,block_position, new Quaternion(0,0,0,0));
+            xplosion.transform.localScale = new Vector3(explosion_size, explosion_size,1F);
 
             StartCoroutine(WaitForAnimation(xplosion));
 
@@ -163,7 +175,7 @@ public class game_manager : MonoBehaviour {
 
     public void EnterSlowMotion()
     {
-        Time.timeScale = 0.1F;
+        Time.timeScale = slow_mo_scale;
     }
 
     public void ExitSlowMotion()
