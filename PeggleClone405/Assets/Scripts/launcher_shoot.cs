@@ -33,7 +33,8 @@ public class launcher_shoot : MonoBehaviour {
 
             getMousePosition();
             if (GameObject.FindGameObjectWithTag("LevelCompleteMenu") == null && GameObject.FindGameObjectWithTag("InGameSettingsMenu") == null
-                && settings_button.GetComponent<BoxCollider2D>().bounds.Contains(mousePosition))
+                //&& settings_button.GetComponent<BoxCollider2D>().bounds.Contains(mousePosition)
+                )
             {
              FireProjectileAtMouse();
             }
