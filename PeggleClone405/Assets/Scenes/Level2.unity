@@ -357,7 +357,7 @@ Prefab:
         type: 2}
       propertyPath: explosion_animation
       value: 
-      objectReference: {fileID: 1785092789003136, guid: c775d9b3b8db07b49900bfbb96a0d169,
+      objectReference: {fileID: 1123237860353138, guid: 1e966bfd9a9fee94f9d89f36cb335dc9,
         type: 2}
     - target: {fileID: 114602788360937178, guid: 0a2d21d8b5df4d7488f94642711102f9,
         type: 2}
