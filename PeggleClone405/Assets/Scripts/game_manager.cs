@@ -95,13 +95,18 @@ public class game_manager : MonoBehaviour {
     {
         Debug.Log("Hit: " + collision.gameObject);
 
+        if (collision.gameObject.tag == "hit")
+        {
+            StartCoroutine("DestroyBlocksEarly");
+        }
+
         if (collision.gameObject.tag == "peg")
         {
             collision.gameObject.tag = "hit";
             collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
 
-        pegs_left = GameObject.FindGameObjectsWithTag("peg");
+            pegs_left = GameObject.FindGameObjectsWithTag("peg");
         if (pegs_left.Length == 1)
         {
             pegs_left[0].AddComponent<CircleCollider2D>();
@@ -117,6 +122,13 @@ public class game_manager : MonoBehaviour {
             endgame = true;
             ExplodeBlocks();
         }
+    }
+
+    IEnumerator DestroyBlocksEarly()
+    {
+        yield return new WaitForSeconds(1.0F);
+        
+        ExplodeBlocks();
     }
 
     public void ResetBall(Collider2D ball)
@@ -170,6 +182,7 @@ public class game_manager : MonoBehaviour {
         }
 
         Destroy(xplosion);
+
         if (endgame)
         {
             ShowLevelMenu();
