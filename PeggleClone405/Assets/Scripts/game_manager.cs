@@ -15,7 +15,8 @@ public class game_manager : MonoBehaviour {
     private GameObject[] hit_pegs; //list of pegs that have been hit by the ball
     public GameObject explosion_animation; //prefab of an explosion sprite
     private GameObject[] pegs_left; // list of pegs that have not been hit
-    private GameObject end_game_panel; //UI panel at the end of a level
+    private GameObject level_complete_panel; //UI panel at the completion of a level
+    private GameObject level_failed_panel; //UI panel at the failure of a level
     private GameObject main_menu_button; // UI button that brings the user back to the main menu
     private Camera cam; // the main camera
 
@@ -38,7 +39,8 @@ public class game_manager : MonoBehaviour {
         launcher = GameObject.Find("Launcher");
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
         cam = Camera.main;
-        end_game_panel = GameObject.Find("LevelCompletePanel");
+        level_complete_panel = GameObject.Find("LevelCompletePanel");
+        level_failed_panel = GameObject.Find("LevelFailedPanel");
         main_menu_button = GameObject.Find("InGameMainMenuButton");
         ball_counter = GameObject.Find("BallCount");
 
@@ -46,7 +48,8 @@ public class game_manager : MonoBehaviour {
         ball_counter.GetComponent<Text>().text = "Balls Left: " + balls;
 
         //set the end game UI to false until the game ends
-        end_game_panel.SetActive(false);
+        level_complete_panel.SetActive(false);
+        level_failed_panel.SetActive(false);
 
         //looks for game settings to adjust the way that the level ends (camera zoom, slow mo, and explosion size)
         if (GameObject.Find("settings") != null) {
@@ -170,6 +173,7 @@ public class game_manager : MonoBehaviour {
         else
         {
             Debug.Log("Game Over");
+            ShowLevelFailedPanel();
         }
         
     }
@@ -212,7 +216,7 @@ public class game_manager : MonoBehaviour {
         //show the end level menu
         if (endgame)
         {
-            ShowLevelMenu();
+            ShowLevelCompletePanel();
         }
     }
 
@@ -240,10 +244,17 @@ public class game_manager : MonoBehaviour {
         zoom = false;
     }
 
-    public void ShowLevelMenu()
+    public void ShowLevelCompletePanel()
     {
-        end_game_panel.SetActive(true);
+        level_complete_panel.SetActive(true);
         main_menu_button.SetActive(false);
         
+    }
+
+    public void ShowLevelFailedPanel()
+    {
+        level_failed_panel.SetActive(true);
+        main_menu_button.SetActive(false);
+
     }
 }
