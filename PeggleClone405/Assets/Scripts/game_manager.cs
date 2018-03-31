@@ -211,7 +211,7 @@ public class game_manager : MonoBehaviour {
         //time that the coroutine ewaits depends if the game is in slo_mo or not
         if (endgame)
         {
-            yield return new WaitForSeconds(0.5F);
+            yield return new WaitForSeconds(0.2F);
         }
         else
         {
