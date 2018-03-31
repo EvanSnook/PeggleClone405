@@ -59,4 +59,6 @@ MonoBehaviour:
   zoom_step: 0.02
   norm_zoom: 5
   max_zoom: 3
-  last_peg_audio_clip: {fileID: 8300000, guid: 8276d1e5bbd0c89409c641eb1bd17f1b, type: 3}
+  anticipation_audio_clip: {fileID: 8300000, guid: 8276d1e5bbd0c89409c641eb1bd17f1b,
+    type: 3}
+  victory_music_clip: {fileID: 8300000, guid: e94f1bd80b7692249863e6d088bd606a, type: 3}

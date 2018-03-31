@@ -27,6 +27,7 @@ public class game_manager : MonoBehaviour {
     public float zoom_step = 0.02F; // the steps that the camera zooms in with
     public float norm_zoom = 5F; // the normal position of the camera
     public float max_zoom = 3F; // the furthers possible zoom of the camera
+    public bool anticipation_and_victory_audio = true;
     private Vector3 last_peg_pos;
     public AudioClip anticipation_audio_clip;
     public AudioClip victory_music_clip;
@@ -61,6 +62,7 @@ public class game_manager : MonoBehaviour {
             max_zoom = settings_object.GetComponent<scaling_settings>().max_zoom;
             slow_mo_scale = settings_object.GetComponent<scaling_settings>().slow_mo_scale;
             explosion_size = settings_object.GetComponent<scaling_settings>().explosion_size;
+            anticipation_and_victory_audio = settings_object.GetComponent<scaling_settings>().anticipation_and_victory_audio;
         }
         else
         {
@@ -81,9 +83,12 @@ public class game_manager : MonoBehaviour {
             //also the scripts to trigger when the ball enters thetrigger zone
             pegs_left[0].AddComponent<slow_motion>();
             pegs_left[0].AddComponent<camera_zoom>();
-            pegs_left[0].AddComponent<last_peg_audio>();
-            pegs_left[0].AddComponent<AudioSource>();
-            pegs_left[0].GetComponent<AudioSource>().clip = anticipation_audio_clip;
+            if (anticipation_and_victory_audio)
+            {
+                pegs_left[0].AddComponent<last_peg_audio>();
+                pegs_left[0].AddComponent<AudioSource>();
+                pegs_left[0].GetComponent<AudioSource>().clip = anticipation_audio_clip;
+            }
             last_peg_pos = pegs_left[0].transform.position;
         }
     }
@@ -142,8 +147,12 @@ public class game_manager : MonoBehaviour {
 
             pegs_left[0].AddComponent<slow_motion>();
             pegs_left[0].AddComponent<camera_zoom>();
-            pegs_left[0].AddComponent<last_peg_audio>();
-            pegs_left[0].GetComponent<AudioSource>().clip = anticipation_audio_clip;
+            if (anticipation_and_victory_audio)
+            {
+                pegs_left[0].AddComponent<last_peg_audio>();
+                pegs_left[0].AddComponent<AudioSource>();
+                pegs_left[0].GetComponent<AudioSource>().clip = anticipation_audio_clip;
+            }
             last_peg_pos = pegs_left[0].transform.position;
         }
 
@@ -262,7 +271,10 @@ public class game_manager : MonoBehaviour {
 
     public void PauseBackgroundMusic()
     {
-        GameObject.Find("Music").GetComponent<AudioSource>().Pause();
+        if (anticipation_and_victory_audio)
+        {
+            GameObject.Find("Music").GetComponent<AudioSource>().Pause();
+        }
     }
 
     public void ResumeBackgroundMusic()
@@ -271,7 +283,7 @@ public class game_manager : MonoBehaviour {
         {
             GameObject.Find("Music").GetComponent<AudioSource>().UnPause();
         }
-        else
+        else if (anticipation_and_victory_audio)
         {
             GameObject.Find("Music").GetComponent<AudioSource>().clip = victory_music_clip;
             GameObject.Find("Music").GetComponent<AudioSource>().loop = true;

@@ -8,6 +8,7 @@ public class scaling_settings : MonoBehaviour {
     public float slow_mo_scale = 0.1f;
     public float explosion_size = 1.0f;
     public float max_zoom = 1F;
+    public bool anticipation_and_victory_audio = true;
 
     private static scaling_settings instance = null;
 
@@ -30,6 +31,7 @@ public class scaling_settings : MonoBehaviour {
             slow_mo_scale = instance.slow_mo_scale;
             explosion_size = instance.explosion_size;
             max_zoom = instance.max_zoom;
+            anticipation_and_victory_audio = instance.anticipation_and_victory_audio;
 
             Destroy(instance.gameObject);
             instance = this;
@@ -54,4 +56,16 @@ public class scaling_settings : MonoBehaviour {
         Debug.Log("setting max zoom to: " + new_zoom);
         max_zoom = new_zoom;
     }
+    public void AudioToggle()
+    {
+        if (anticipation_and_victory_audio)
+        {
+            anticipation_and_victory_audio = false;
+        }
+        else
+        {
+            anticipation_and_victory_audio = true;
+        }
+    }
+
 }
