@@ -175,8 +175,12 @@ public class game_manager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Game Over");
-            ShowLevelFailedPanel();
+            if (!endgame)
+            {
+                Debug.Log("Game Over");
+                ShowLevelFailedPanel();
+            }
+            
         }
         
     }
