@@ -49,6 +49,7 @@ public class launcher_shoot : MonoBehaviour {
             clone = Instantiate(projectile_prefab, transform.position, angle_to_mouse) as GameObject;
             clone.GetComponent<Rigidbody2D>().AddForce(clone.transform.up * -projectile_speed);
 
+            this.gameObject.GetComponent<AudioSource>().Play();
             Debug.Log("Fired clone " + clone + " at " + mouse_position);
 
         }

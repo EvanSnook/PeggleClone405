@@ -16,5 +16,6 @@ public class ball_collide : MonoBehaviour {
     {
         Debug.Log("Ball collided with " + collision.gameObject.tag);
         game_manager.SendMessage("BallCollision", collision);
+        this.gameObject.GetComponent<AudioSource>().Play();
     }
 }
