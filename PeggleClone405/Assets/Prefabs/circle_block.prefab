@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212810597340776884}
   - component: {fileID: 60346680985374616}
   m_Layer: 0
-  m_Name: circle_block
+  m_Name: CircleBlock
   m_TagString: peg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
