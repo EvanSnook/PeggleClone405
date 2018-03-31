@@ -241,7 +241,10 @@ public class game_manager : MonoBehaviour {
 
     public void ExitCameraZoom()
     {
-        zoom = false;
+        if (!endgame)
+        {
+            zoom = false;
+        }
     }
 
     public void ShowLevelCompletePanel()
