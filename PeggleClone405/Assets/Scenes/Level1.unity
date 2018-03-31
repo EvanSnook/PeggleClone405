@@ -404,7 +404,7 @@ Prefab:
     - target: {fileID: 114602788360937178, guid: 0a2d21d8b5df4d7488f94642711102f9,
         type: 2}
       propertyPath: zoom_step
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 114602788360937178, guid: 0a2d21d8b5df4d7488f94642711102f9,
         type: 2}
@@ -549,7 +549,7 @@ MonoBehaviour:
     type: 2}
   slow_mo_scale: 0.05
   explosion_size: 3
-  zoom_step: 0.05
+  zoom_step: 0.02
   norm_zoom: 5
   max_zoom: 3
 --- !u!4 &1418718858
@@ -864,7 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035213664}
   m_Layer: 0
-  m_Name: Level1Blocks
+  m_Name: TESTLevel1Blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

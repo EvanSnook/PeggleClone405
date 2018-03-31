@@ -51,12 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cebe5032eb4fbbb428039bb0be22e359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balls: 300
+  balls: 14
   explosion_animation: {fileID: 1123237860353138, guid: c775d9b3b8db07b49900bfbb96a0d169,
     type: 2}
-  slow_mo_scale: 0.1
+  slow_mo_scale: 0.05
   explosion_size: 1
-  zoom_speed: 0.2
-  zoom_step: 0.2
+  zoom_step: 0.02
   norm_zoom: 5
-  max_zoom: 1
+  max_zoom: 3

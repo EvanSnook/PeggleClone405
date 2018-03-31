@@ -24,7 +24,7 @@ public class game_manager : MonoBehaviour {
     public float explosion_size = 3.0f; // control the size of the explosion_animation
     private bool zoom = false; //is the camera zoomed in or not
     private bool endgame = false; //has the level ended or not
-    public float zoom_step = 0.05F; // the steps that the camera zooms in with
+    public float zoom_step = 0.02F; // the steps that the camera zooms in with
     public float norm_zoom = 5F; // the normal position of the camera
     public float max_zoom = 3F; // the furthers possible zoom of the camera
     private Vector3 last_peg_pos;
@@ -138,6 +138,7 @@ public class game_manager : MonoBehaviour {
             pegs_left[0].AddComponent<slow_motion>();
             pegs_left[0].AddComponent<camera_zoom>();
 
+            last_peg_pos = pegs_left[0].transform.position;
         }
 
         //if there are 0 pegs left, then ends the level and destroy the pegs
