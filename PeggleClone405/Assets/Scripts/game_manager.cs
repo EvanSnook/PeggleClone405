@@ -28,6 +28,8 @@ public class game_manager : MonoBehaviour {
     public float zoom_step = 0.1F; // the steps that the camera zooms in with
     public float norm_zoom = 5F; // the normal position of the camera
     public float max_zoom = 1F; // the furthers possible zoom of the camera
+    private Vector3 last_peg_pos;
+    
 
     private GameObject settings_object; //doesnt destroy on load from the main menu to bring some settings over
     
@@ -78,6 +80,7 @@ public class game_manager : MonoBehaviour {
             //also the scripts to trigger when the ball enters thetrigger zone
             pegs_left[0].AddComponent<slow_motion>();
             pegs_left[0].AddComponent<camera_zoom>();
+            last_peg_pos = pegs_left[0].transform.position;
         }
     }
 
@@ -90,7 +93,7 @@ public class game_manager : MonoBehaviour {
             {
                 cam.GetComponent<Camera>().orthographicSize -= zoom_step;
             }
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(pegs_left[0].transform.position.x, pegs_left[0].transform.position.y, -1), zoom_step);
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(last_peg_pos.x, last_peg_pos.y, -1), 3 * zoom_step);
             
         }
         //while the zooming mode is deactivated the camera will zoom out towards the origin up to a normal_zoom by a zoom_step
@@ -100,7 +103,7 @@ public class game_manager : MonoBehaviour {
             {
                 cam.GetComponent<Camera>().orthographicSize += zoom_step;
             }
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(0F,0F,-1F), zoom_step);
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(0F,0F,-1F), 3 * zoom_step);
            
         }
 

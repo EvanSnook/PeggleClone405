@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212282453649929124}
   - component: {fileID: 60161004414096464}
   m_Layer: 0
-  m_Name: 40Block
+  m_Name: 40block
   m_TagString: peg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

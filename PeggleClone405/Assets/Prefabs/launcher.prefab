@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 114152457582803136}
   - component: {fileID: 114311658931691234}
   m_Layer: 0
-  m_Name: Launcher
-  m_TagString: launcher
+  m_Name: launcher
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
