@@ -28,7 +28,10 @@ public class game_manager : MonoBehaviour {
     public float norm_zoom = 5F; // the normal position of the camera
     public float max_zoom = 3F; // the furthers possible zoom of the camera
     private Vector3 last_peg_pos;
-    
+    public AudioClip anticipation_audio_clip;
+    public AudioClip victory_music_clip;
+
+
 
     private GameObject settings_object; //doesnt destroy on load from the main menu to bring some settings over
     
@@ -44,7 +47,6 @@ public class game_manager : MonoBehaviour {
         level_failed_panel = GameObject.Find("LevelFailedPanel");
         main_menu_button = GameObject.Find("InGameMainMenuButton");
         ball_counter = GameObject.Find("BallCount");
-
         //set the bounter UI element text to be the balls left of the current level
         ball_counter.GetComponent<Text>().text = "Balls Left: " + balls;
 
@@ -74,11 +76,14 @@ public class game_manager : MonoBehaviour {
 
             pegs_left[0].AddComponent<CircleCollider2D>();
             pegs_left[0].GetComponent<CircleCollider2D>().isTrigger = true;
-            pegs_left[0].GetComponent<CircleCollider2D>().radius = 3.0F;
+            pegs_left[0].GetComponent<CircleCollider2D>().radius = 5.0F;
 
             //also the scripts to trigger when the ball enters thetrigger zone
             pegs_left[0].AddComponent<slow_motion>();
             pegs_left[0].AddComponent<camera_zoom>();
+            pegs_left[0].AddComponent<last_peg_audio>();
+            pegs_left[0].AddComponent<AudioSource>();
+            pegs_left[0].GetComponent<AudioSource>().clip = anticipation_audio_clip;
             last_peg_pos = pegs_left[0].transform.position;
         }
     }
@@ -137,7 +142,8 @@ public class game_manager : MonoBehaviour {
 
             pegs_left[0].AddComponent<slow_motion>();
             pegs_left[0].AddComponent<camera_zoom>();
-
+            pegs_left[0].AddComponent<last_peg_audio>();
+            pegs_left[0].GetComponent<AudioSource>().clip = anticipation_audio_clip;
             last_peg_pos = pegs_left[0].transform.position;
         }
 
@@ -251,6 +257,25 @@ public class game_manager : MonoBehaviour {
         if (!endgame)
         {
             zoom = false;
+        }
+    }
+
+    public void PauseBackgroundMusic()
+    {
+        GameObject.Find("Music").GetComponent<AudioSource>().Pause();
+    }
+
+    public void ResumeBackgroundMusic()
+    {
+        if (!endgame)
+        {
+            GameObject.Find("Music").GetComponent<AudioSource>().UnPause();
+        }
+        else
+        {
+            GameObject.Find("Music").GetComponent<AudioSource>().clip = victory_music_clip;
+            GameObject.Find("Music").GetComponent<AudioSource>().loop = true;
+            GameObject.Find("Music").GetComponent<AudioSource>().Play();
         }
     }
 

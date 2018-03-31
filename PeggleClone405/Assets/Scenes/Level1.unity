@@ -152,6 +152,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114602788360937178, guid: f220d458762a7974c8a173773f38f466,
+        type: 2}
+      propertyPath: anticipation_audio_clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8276d1e5bbd0c89409c641eb1bd17f1b, type: 3}
+    - target: {fileID: 114602788360937178, guid: f220d458762a7974c8a173773f38f466,
+        type: 2}
+      propertyPath: victory_music_clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e94f1bd80b7692249863e6d088bd606a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f220d458762a7974c8a173773f38f466, type: 2}
   m_IsPrefabParent: 0
@@ -270,7 +280,7 @@ Prefab:
     - target: {fileID: 224017076903067136, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -53.966667
       objectReference: {fileID: 0}
     - target: {fileID: 224165480076872182, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
@@ -290,7 +300,7 @@ Prefab:
     - target: {fileID: 224165480076872182, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -155.2
       objectReference: {fileID: 0}
     - target: {fileID: 224416637168913510, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
@@ -310,7 +320,7 @@ Prefab:
     - target: {fileID: 224416637168913510, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -249.73334
       objectReference: {fileID: 0}
     - target: {fileID: 224294372874237760, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
@@ -330,7 +340,7 @@ Prefab:
     - target: {fileID: 224294372874237760, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -53.966667
       objectReference: {fileID: 0}
     - target: {fileID: 224939508885166586, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
@@ -350,7 +360,7 @@ Prefab:
     - target: {fileID: 224939508885166586, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -155.2
       objectReference: {fileID: 0}
     - target: {fileID: 224816239378539094, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
@@ -370,7 +380,7 @@ Prefab:
     - target: {fileID: 224816239378539094, guid: edc8e7a1d48b09b428acc9c3d81104f1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -249.73334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edc8e7a1d48b09b428acc9c3d81104f1, type: 2}
@@ -413,6 +423,10 @@ Prefab:
     - target: {fileID: 4890137654958276, guid: 889a54105b8d9e649b8b15a4a786a15e, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193510730298478, guid: 889a54105b8d9e649b8b15a4a786a15e, type: 2}
+      propertyPath: m_Name
+      value: Music
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 889a54105b8d9e649b8b15a4a786a15e, type: 2}
@@ -462,7 +476,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1604693066458940, guid: e5f5dbf817ae19341bc232c2e0384aa5, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5f5dbf817ae19341bc232c2e0384aa5, type: 2}
@@ -505,6 +519,10 @@ Prefab:
     - target: {fileID: 4977047880468692, guid: e4b56e07b426e97449b41219ba560408, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184761100478718, guid: e4b56e07b426e97449b41219ba560408, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4b56e07b426e97449b41219ba560408, type: 2}

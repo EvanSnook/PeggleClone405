@@ -2795,7 +2795,7 @@ GameObject:
   - component: {fileID: 939419603}
   - component: {fileID: 939419602}
   m_Layer: 0
-  m_Name: music
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

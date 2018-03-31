@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cebe5032eb4fbbb428039bb0be22e359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balls: 14
+  balls: 5
   explosion_animation: {fileID: 1123237860353138, guid: c775d9b3b8db07b49900bfbb96a0d169,
     type: 2}
   slow_mo_scale: 0.05
@@ -59,3 +59,4 @@ MonoBehaviour:
   zoom_step: 0.02
   norm_zoom: 5
   max_zoom: 3
+  last_peg_audio_clip: {fileID: 8300000, guid: 8276d1e5bbd0c89409c641eb1bd17f1b, type: 3}
