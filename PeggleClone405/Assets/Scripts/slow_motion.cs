@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//sends messages to the game_manager when a trigger is entered and exited
 public class slow_motion : MonoBehaviour {
 
     private GameObject game_manager;

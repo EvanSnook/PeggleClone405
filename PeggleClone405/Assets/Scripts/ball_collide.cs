@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//sends a message to the game_manager when the ball collides with a gameobject
 public class ball_collide : MonoBehaviour {
 
     private GameObject game_manager;

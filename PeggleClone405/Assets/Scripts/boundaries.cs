@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//sends messages to the game_manager if the ball leaves the boundaries
 public class boundaries : MonoBehaviour {
 
     private GameObject game_manager;
@@ -11,6 +12,7 @@ public class boundaries : MonoBehaviour {
         game_manager = GameObject.FindGameObjectWithTag("game_manager");
     }
 
+    //resets the ball and then triggers the blocks to explode
     void OnTriggerExit2D(Collider2D ball)
     {
         Debug.Log("Ball left boundaries");

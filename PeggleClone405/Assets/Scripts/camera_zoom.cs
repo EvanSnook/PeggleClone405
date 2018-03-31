@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//sends a message to the game_manager when the triger is entered or exited to zoom or unzoom the camera
 public class camera_zoom : MonoBehaviour {
 
     private GameObject game_manager;
