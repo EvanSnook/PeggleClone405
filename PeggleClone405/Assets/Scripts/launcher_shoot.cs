@@ -8,7 +8,6 @@ public class launcher_shoot : MonoBehaviour {
     public GameObject projectile_prefab; // The Projectile that will be fired.
     private GameObject clone; // The fired Projectile.
 
-
     private GameObject end_game_panel; //UI panel shown at end of game
 
     private bool can_fire; // This keeps track of if you can fire or not.
@@ -30,8 +29,9 @@ public class launcher_shoot : MonoBehaviour {
             // This get's the input for Fire1 and calls fire function if UI elements are not open
             getMousePosition();
 
-            if (GameObject.FindGameObjectWithTag("LevelCompleteMenu") == null)
+            if (GameObject.Find("LevelCompletePanel") == null)
             {
+                Debug.Log("Fire attempted...");
                 FireProjectileAtMouse();
             }
         }
@@ -43,14 +43,18 @@ public class launcher_shoot : MonoBehaviour {
     {
         if (can_fire)
         {
-            Debug.Log("Ball fired");
             can_fire = false;
-            Debug.Log("Fire on cooldown");
 
-            //creates the projectil and then adds force to it
+            //creates the projectile and then adds force to it
             clone = Instantiate(projectile_prefab, transform.position, angle_to_mouse) as GameObject;
             clone.GetComponent<Rigidbody2D>().AddForce(clone.transform.up * -projectile_speed);
-            
+
+            Debug.Log("Fired clone " + clone + " at " + mouse_position);
+
+        }
+        else
+        {
+            Debug.Log("cant fire.");
         }
 
     }
@@ -73,8 +77,8 @@ public class launcher_shoot : MonoBehaviour {
 
     public void resetFire()
     {
-        Debug.Log("Ready to fire");
         //sets the variable to true so that the launcher is ready to fire again
         can_fire = true;
+        Debug.Log("Ready to fire");
     }
 }

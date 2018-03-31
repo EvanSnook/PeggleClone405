@@ -5,13 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - peg
-  - game_manager
-  - launcher
   - hit
-  - LevelCompleteMenu
-  - SettingsButton
-  - InGameSettingsMenu
-  - ballCounter
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114602788360937178}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: game_manager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balls: 300
+  explosion_animation: {fileID: 1123237860353138, guid: c775d9b3b8db07b49900bfbb96a0d169,
+    type: 2}
   slow_mo_scale: 0.1
   explosion_size: 1
-  explosion_animation: {fileID: 1123237860353138, guid: 1e966bfd9a9fee94f9d89f36cb335dc9,
-    type: 2}
   zoom_speed: 0.2
   zoom_step: 0.2
   norm_zoom: 5

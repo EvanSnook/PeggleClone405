@@ -210,6 +210,70 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224294372874237760, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224294372874237760, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224294372874237760, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 224294372874237760, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224939508885166586, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224939508885166586, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224939508885166586, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 224939508885166586, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224816239378539094, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224816239378539094, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224816239378539094, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 224816239378539094, guid: edc8e7a1d48b09b428acc9c3d81104f1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359673353036922, guid: edc8e7a1d48b09b428acc9c3d81104f1, type: 2}
+      propertyPath: m_Name
+      value: InGameMainMenuButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edc8e7a1d48b09b428acc9c3d81104f1, type: 2}
   m_IsPrefabParent: 0
@@ -255,6 +319,16 @@ Prefab:
     - target: {fileID: 1639315398487162, guid: 0a2d21d8b5df4d7488f94642711102f9, type: 2}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602788360937178, guid: 0a2d21d8b5df4d7488f94642711102f9,
+        type: 2}
+      propertyPath: explosion_animation
+      value: 
+      objectReference: {fileID: 1123237860353138, guid: c775d9b3b8db07b49900bfbb96a0d169,
+        type: 2}
+    - target: {fileID: 1639315398487162, guid: 0a2d21d8b5df4d7488f94642711102f9, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a2d21d8b5df4d7488f94642711102f9, type: 2}
@@ -340,10 +414,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1869439041722826, guid: 35e2fdcff4f40764794604b32da78f28, type: 2}
-      propertyPath: m_Name
-      value: Boundaries
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35e2fdcff4f40764794604b32da78f28, type: 2}
   m_IsPrefabParent: 0
@@ -359,7 +429,7 @@ GameObject:
   - component: {fileID: 1575676102}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: game_manager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,10 +447,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balls: 300
+  explosion_animation: {fileID: 1123237860353138, guid: c775d9b3b8db07b49900bfbb96a0d169,
+    type: 2}
   slow_mo_scale: 0.1
   explosion_size: 1
-  explosion_animation: {fileID: 1123237860353138, guid: 1e966bfd9a9fee94f9d89f36cb335dc9,
-    type: 2}
   zoom_speed: 0.2
   zoom_step: 0.2
   norm_zoom: 5
@@ -481,8 +551,8 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1206062535726510, guid: 4f435eda71eb19241953cf5fcae18bb8, type: 2}
-      propertyPath: m_Name
-      value: Launcher
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f435eda71eb19241953cf5fcae18bb8, type: 2}

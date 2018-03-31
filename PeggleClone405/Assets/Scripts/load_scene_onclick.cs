@@ -9,6 +9,7 @@ public class load_scene_onclick : MonoBehaviour {
     //scene index is a variable inserted when the UI element calls the function
     public void LoadByindex(int sceneIndex)
     {
+        Debug.Log("loading scene index " + sceneIndex);
         SceneManager.LoadScene(sceneIndex);
     }
 }

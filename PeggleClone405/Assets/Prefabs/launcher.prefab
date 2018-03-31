@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021c1d3a25cea2946ac0592e49e5d3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 500
-  projectilePrefab: {fileID: 1346203594859520, guid: 02c6e1134fee4b8499aa8ee3481336f8,
+  projectile_speed: 500
+  projectile_prefab: {fileID: 1346203594859520, guid: 02c6e1134fee4b8499aa8ee3481336f8,
     type: 2}
 --- !u!212 &212498790445094882
 SpriteRenderer:

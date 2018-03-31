@@ -9,7 +9,7 @@ public class boundaries : MonoBehaviour {
 
     private void Start()
     {
-        game_manager = GameObject.FindGameObjectWithTag("game_manager");
+        game_manager = GameObject.Find("GameManager");
     }
 
     //resets the ball and then triggers the blocks to explode

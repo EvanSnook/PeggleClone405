@@ -9,6 +9,7 @@ public class quit_onclick : MonoBehaviour {
     {
         //quits to the editor if in the editor and quits the app if in an app
         #if UNITY_EDITOR
+            Debug.Log("Quit through editor");
             UnityEditor.EditorApplication.isPlaying = false;
         #else
             Application.Quit();

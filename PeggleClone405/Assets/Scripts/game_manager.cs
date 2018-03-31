@@ -35,12 +35,12 @@ public class game_manager : MonoBehaviour {
         //set the time to normal speed
         Time.timeScale = 1.0F;
         //find the launcher, pegs_left, camera, and UI elements
-        launcher = GameObject.FindGameObjectWithTag("launcher");
+        launcher = GameObject.Find("Launcher");
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
         cam = Camera.main;
-        end_game_panel = GameObject.FindGameObjectWithTag("LevelCompleteMenu");
-        main_menu_button = GameObject.FindGameObjectWithTag("MainMenuButton");
-        ball_counter = GameObject.FindGameObjectWithTag("ballCounter");
+        end_game_panel = GameObject.Find("LevelCompletePanel");
+        main_menu_button = GameObject.Find("InGameMainMenuButton");
+        ball_counter = GameObject.Find("BallCount");
 
         //set the bounter UI element text to be the balls left of the current level
         ball_counter.GetComponent<Text>().text = "Balls Left: " + balls;
@@ -50,10 +50,15 @@ public class game_manager : MonoBehaviour {
 
         //looks for game settings to adjust the way that the level ends (camera zoom, slow mo, and explosion size)
         if (GameObject.Find("settings") != null) {
+            Debug.Log("updating variables from settings");
             settings_object = GameObject.Find("settings");
             max_zoom = settings_object.GetComponent<scaling_settings>().max_zoom;
             slow_mo_scale = settings_object.GetComponent<scaling_settings>().slow_mo_scale;
             explosion_size = settings_object.GetComponent<scaling_settings>().explosion_size;
+        }
+        else
+        {
+            Debug.Log("settings not found");
         }
 
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
@@ -61,6 +66,8 @@ public class game_manager : MonoBehaviour {
         //if there is one peg left then add a trigger to it to trigger the end level events
         if (pegs_left.Length == 1)
         {
+            Debug.Log("Adding trigger components to last peg");
+
             pegs_left[0].AddComponent<CircleCollider2D>();
             pegs_left[0].GetComponent<CircleCollider2D>().isTrigger = true;
             pegs_left[0].GetComponent<CircleCollider2D>().radius = 3.0F;
@@ -103,6 +110,7 @@ public class game_manager : MonoBehaviour {
         //if the object has been hit once already, then destroy the blocks early to prevent the ball from bouncing between 2 things for hours
         if (collision.gameObject.tag == "hit")
         {
+            Debug.Log("peg hit twice - destroying pegs early");
             StartCoroutine("DestroyBlocksEarly");
         }
 
@@ -117,6 +125,7 @@ public class game_manager : MonoBehaviour {
         pegs_left = GameObject.FindGameObjectsWithTag("peg");
         if (pegs_left.Length == 1)
         {
+            Debug.Log("adding trigger to the last peg");
             pegs_left[0].AddComponent<CircleCollider2D>();
             pegs_left[0].GetComponent<CircleCollider2D>().isTrigger = true;
             pegs_left[0].GetComponent<CircleCollider2D>().radius = 3.0F;
@@ -129,6 +138,7 @@ public class game_manager : MonoBehaviour {
         //if there are 0 pegs left, then ends the level and destroy the pegs
         if(pegs_left.Length == 0)
         {
+            Debug.Log("ending level");
             endgame = true;
             ExplodeBlocks();
         }
@@ -172,6 +182,7 @@ public class game_manager : MonoBehaviour {
         {
             //save the position
             Vector3 block_position = new Vector3(block.transform.position.x, block.transform.position.y, block.transform.position.z);
+            Debug.Log("destroying " + block.gameObject);
             //destroy the peg
             Destroy(block.gameObject);
             //create the explosion where the peg was

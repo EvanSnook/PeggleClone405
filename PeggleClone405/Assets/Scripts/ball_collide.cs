@@ -9,7 +9,7 @@ public class ball_collide : MonoBehaviour {
 
     private void Start()
     {
-        game_manager = GameObject.FindGameObjectWithTag("game_manager");
+        game_manager = GameObject.Find("GameManager");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

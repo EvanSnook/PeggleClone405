@@ -9,7 +9,7 @@ public class camera_zoom : MonoBehaviour {
 
     private void Start()
     {
-        game_manager = GameObject.FindGameObjectWithTag("game_manager");
+        game_manager = GameObject.Find("GameManager");
     }
 
     void OnTriggerEnter2D(Collider2D ball)
