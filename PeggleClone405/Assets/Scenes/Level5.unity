@@ -230,6 +230,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114602788360937178, guid: f220d458762a7974c8a173773f38f466,
+        type: 2}
+      propertyPath: balls
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f220d458762a7974c8a173773f38f466, type: 2}
   m_IsPrefabParent: 0
@@ -1364,6 +1369,10 @@ Prefab:
     - target: {fileID: 1206062535726510, guid: 4f435eda71eb19241953cf5fcae18bb8, type: 2}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206062535726510, guid: 4f435eda71eb19241953cf5fcae18bb8, type: 2}
+      propertyPath: m_Name
+      value: Launcher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f435eda71eb19241953cf5fcae18bb8, type: 2}

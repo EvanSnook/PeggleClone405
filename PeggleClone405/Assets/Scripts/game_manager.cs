@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class game_manager : MonoBehaviour {
 
-    public int balls = 3; //number of balls allowed in the level
+    public int balls = 5; //number of balls allowed in the level
 
     private GameObject ball_counter; //UI element that displays how many balls are left
     private GameObject launcher; //game object that shoots the ball
@@ -20,14 +20,13 @@ public class game_manager : MonoBehaviour {
     private GameObject main_menu_button; // UI button that brings the user back to the main menu
     private Camera cam; // the main camera
 
-    public float slow_mo_scale = 0.1f; // control time speed in slow motion mode
-    public float explosion_size = 1.0f; // control the size of the explosion_animation
+    public float slow_mo_scale = 0.05f; // control time speed in slow motion mode
+    public float explosion_size = 3.0f; // control the size of the explosion_animation
     private bool zoom = false; //is the camera zoomed in or not
     private bool endgame = false; //has the level ended or not
-    public float zoom_speed = 0.1F; // how fast the camera should zoom
-    public float zoom_step = 0.1F; // the steps that the camera zooms in with
+    public float zoom_step = 0.05F; // the steps that the camera zooms in with
     public float norm_zoom = 5F; // the normal position of the camera
-    public float max_zoom = 1F; // the furthers possible zoom of the camera
+    public float max_zoom = 3F; // the furthers possible zoom of the camera
     private Vector3 last_peg_pos;
     
 
@@ -93,7 +92,7 @@ public class game_manager : MonoBehaviour {
             {
                 cam.GetComponent<Camera>().orthographicSize -= zoom_step;
             }
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(last_peg_pos.x, last_peg_pos.y, -1), 3 * zoom_step);
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(last_peg_pos.x, last_peg_pos.y, -1), 3F * zoom_step);
             
         }
         //while the zooming mode is deactivated the camera will zoom out towards the origin up to a normal_zoom by a zoom_step
@@ -103,7 +102,7 @@ public class game_manager : MonoBehaviour {
             {
                 cam.GetComponent<Camera>().orthographicSize += zoom_step;
             }
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(0F,0F,-1F), 3 * zoom_step);
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, new Vector3(0F,0F,-1F), 3F * zoom_step);
            
         }
 
